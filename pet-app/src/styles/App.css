@@ -19,6 +19,7 @@ header {
 }
 
 h1 {
+    font-size: 2.5em;
     color: var(--darkgreen);
 }
 
@@ -89,7 +90,7 @@ a.home {
 
 /* Form */
 
-.form-input {
+.form-input, .form-input-email, .match-info-component {
     width: 700px;
     background-color: var(--white);
     border-radius: 40px;
@@ -152,8 +153,8 @@ input[type=submit]:hover {
     color: var(--white);
 }
 
-/* Page Swipe */
-.page-swipe {
+/* Page Swipe and Page Profile */
+.page-swipe, .page-profile {
     display: flex;
     align-items: center;
 }
@@ -164,7 +165,7 @@ input[type=submit]:hover {
     padding: 1rem;
 }
 
-.yes {
+.yes, .email {
     color: var(--darkgreen);
     font-size: 96px;
     padding: 1rem;
@@ -194,7 +195,7 @@ input[type=submit]:hover {
     padding: 1rem;
 }
 
-.card h2 {
+.card h2, .profile h2 {
     font-size: 2em;
     margin: 0;
     color: var(--brown);
@@ -232,6 +233,7 @@ input[type=submit]:hover {
     width: 700px;
     background-color: var(--white);
     border-radius: 40px;
+    margin-bottom: 2rem;
 }
 
 .profile .profile-pic {
@@ -253,6 +255,10 @@ input[type=submit]:hover {
     padding: 0 1rem 1rem;
 }
 
+.profile-info-component a {
+    color: var(--darkgreen);
+}
+
 ul.profile-list {
    padding: 0; 
 }
@@ -261,4 +267,28 @@ ul.profile-list {
     list-style: none;
     font-size: 1.45em;
     padding-bottom: 0.25rem;
+}
+
+/* Email */
+
+.form-input-email fieldset {
+    display: flex;
+    flex-direction: column; 
+}
+
+textarea {
+    height: 200px;
+    margin: 1rem 0 0;
+    padding: 0.5rem 1rem;
+    border-radius: 0.625rem;
+    border: 2px solid var(--brown);
+}
+
+textarea:focus {
+    border: 2px solid var(--darkgreen);
+    outline: none;
+}
+
+.match-info-component {
+    margin-bottom: 2rem;
 }

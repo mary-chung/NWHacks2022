@@ -6,7 +6,7 @@ import PageHome from '../pages/PageHome';
 import PageForm from '../pages/PageForm';
 import PageSwipeCard from '../pages/PageSwipeCard';
 import PageProfile from '../pages/PageProfile';
-
+import PageEmail from '../pages/PageEmail';
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
           <Route path="form" element={<PageForm />} />
           <Route path="swipe" element={<PageSwipeCard />} />
           <Route path="profile" element={<PageProfile />} />
+          <Route path="email" element={<PageEmail />} />
         </Routes>
       </div>
   );

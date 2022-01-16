@@ -1,6 +1,12 @@
 import Form from "../components/Form";
+import { useEffect } from "react";
 
 const PageForm = () => {
+
+    useEffect(() => {
+		document.title = `MatchaPet - Questionnaire`;
+	}, []);
+
     return (
         <main>
             <section className="page">

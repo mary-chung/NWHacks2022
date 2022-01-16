@@ -1,4 +1,7 @@
+import { Link } from "react-router-dom";
+
 const ProfileInfo = () =>  {
+
     return (
         <div className="profile-info-component">
             <h2>Get to know Sugar!</h2>
@@ -14,6 +17,8 @@ const ProfileInfo = () =>  {
                 <li>Bonded with another animal? Y</li>
                 <li>Special needs? Y</li>
             </ul>
+            <p>Shelter: SPCA</p>
+            <p>Find out more about me <Link to="/">here!</Link></p>
         </div>
     )
 }
