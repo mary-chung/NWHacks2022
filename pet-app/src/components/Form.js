@@ -1,11 +1,9 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import matchData from "../data/matchData";
 
 const Form = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const navigate = useNavigate();
-    const onSubmit = (data) => {
-        console.log(data);
+    const asyncFetch = async (data) => {
         let age = data.age;
         let fur = data.fur;
         let sex = data.gender;
@@ -60,10 +58,46 @@ const Form = () => {
         url = url.concat('&distance=' + location)
 
         //fetch(url).then(res => console.log(res.json()))
-        fetch(url).then(res => {
-            let results = Promise.resolve(res.json())
-            console.log(results)
+        let matchData = await fetch(url, { method : 'GET' })
+        .then(res => {
+            return res.json();
         })
+
+        await new Promise(r => setTimeout(r, 2000));
+        console.log(matchData)
+
+
+        // for (let i=0; i<matchData.length; i++) {
+        //     let match = {
+        //         name: matchData[i].name,
+        //         type: matchData[i].type,
+        //         sex: matchData[i].breed,
+        //         size: matchData[i].size,
+        //         furlength: matchData[i].furLength,
+        //         ageRange: matchData[i].ageRange,
+        //         age: matchData[i].age,
+        //         kidsOK: matchData[i].kidsOK,
+        //         indoorsOnly: matchData[i].indoorsOnly,
+        //         apartmentOK: matchData[i].apartmentOK,
+        //         houseTrained: matchData[i].houseTrained,
+        //         catsOK: matchData[i].catsOK,
+        //         dogsOK: matchData[i].dogsOK,
+        //         bonded: matchData[i].bonded,
+        //         specialNeeds: matchData[i].specialNeeds,
+        //         location: matchData[i].location,
+        //         description: matchData[i].description,
+        //         websiteLink: matchData[i].websiteLink,
+        //     }
+
+        //     matchData.push(match)
+        // }
+
+
+    }
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const navigate = useNavigate();
+    const onSubmit = (data) => {
+        asyncFetch(data);
         
 
         navigate("/swipe");

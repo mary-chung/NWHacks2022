@@ -56,7 +56,7 @@ const populateTable = () => {
                     if (error) {
                         console.log(error);
                     } else {
-                        // something
+                        console.log("Database populated successfully")
                     }
                 })
             }
@@ -64,6 +64,7 @@ const populateTable = () => {
     })
 }
 
+// connect to the database and init table, populate table
 const initDB = () => {
     try {
         connect();
@@ -78,6 +79,7 @@ const initDB = () => {
     }
 }
 
+// sample URL that would be parsed into an SQL SELECT query
 // http://localhost:5000/adoptablepets?ageRange=young,adult&sex=F&type=dog,cat&size=M&furLength=short&distance=100
 const queryPets = (ageRange, sex, type, size, furLength, distance) => {
 
@@ -135,7 +137,6 @@ const queryPets = (ageRange, sex, type, size, furLength, distance) => {
 
     let queryArgs = ageRange.concat(sex, type, size, furLength);
 
-    let results = []
     return new Promise((resolve, reject) => {
         connection.query(queryString, queryArgs, (error, result, fields) => {
             if (error) {
