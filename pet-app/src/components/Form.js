@@ -1,8 +1,13 @@
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const navigate = useNavigate();
+    const onSubmit = (data) => {
+        console.log(data);
+        navigate("/swipe");
+                    }
     // need a saveData() function in another file?
     console.log(errors);
 
@@ -22,94 +27,191 @@ const Form = () => {
                 <p>I'm looking for a...</p>
 
                 <fieldset>
-                    <label>Age of Animal</label>
+                    <label>
+                        <input  type="checkbox" 
+                                value="dog" 
+                                {...register("type[]", {required: true})} />
+                    Dog
+                    </label>
 
-                    <input type="checkbox" value="young" {...register("age[]", {})} />
-                    <label>Young</label>
+                    <label>
+                        <input  type="checkbox" 
+                                value="cat" 
+                                {...register("type[]", {})} />
+                    Cat
+                    </label>
 
-                    <input type="checkbox" value="youngadult" {...register("age[]", {})} />
-                    <label>Young Adult</label>
+                    <label>
+                        <input  type="checkbox" 
+                                value="guineapig" 
+                                {...register("type[]", {})} />
+                    Guinea Pig
+                    </label>
 
-                    <input type="checkbox" value="adult" {...register("age[]", {})} />
-                    <label>Adult</label>
+                    <label>
+                        <input  type="checkbox" 
+                                value="rat" 
+                                {...register("type[]", {})} />
+                    Rat
+                    </label>
 
-                    <input type="checkbox" value="senior" {...register("age[]", {})} />
-                    <label>Senior</label>
+                    <label>
+                        <input  type="checkbox" 
+                                value="rabbit" 
+                                {...register("type[]", {})} />
+                    Rabbit
+                    </label>
+
+                    <label>
+                        <input  type="checkbox" 
+                                value="bird" 
+                                {...register("type[]", {})} />
+                    Bird
+                    </label>
                 </fieldset>
 
+                <p>Who is...</p>
+
                 <fieldset>
-                    <label>Gender of Animal</label>
+                    <label>
+                        <input  type="checkbox" 
+                                value="male" 
+                                {...register("gender[]", {required: true})} />
+                    Male
+                    </label>
 
-                    <input type="checkbox" value="young" {...register("gender[]", {})} />
-                    <label>Male</label>
-
-                    <input type="checkbox" value="youngadult" {...register("gender[]", {})} />
-                    <label>Female</label>
+                    <label>
+                        <input  type="checkbox" 
+                                value="female" 
+                                {...register("gender[]", {})} />
+                    Female
+                    </label>
                 </fieldset>
 
+                <p>And is this age...</p>
+
                 <fieldset>
-                    <label>Type of Animal</label>
+                    <label>
+                        <input  type="checkbox" 
+                                value="young" 
+                                {...register("age[]", {required: true})} />
+                    Young
+                    </label>
 
-                    <input type="checkbox" value="dog" {...register("type[]", {})} />
-                    <label>Dog</label>
+                    <label>
+                        <input  type="checkbox" 
+                                value="youngadult" 
+                                {...register("age[]", {})} />
+                    Young Adult
+                    </label>
 
-                    <input type="checkbox" value="cat" {...register("type[]", {})} />
-                    <label>Cat</label>
+                    <label>
+                        <input  type="checkbox" 
+                                value="adult" 
+                                {...register("age[]", {})} />
+                    Adult
+                    </label>
 
-                    <input type="checkbox" value="guineapig" {...register("type[]", {})} />
-                    <label>Guinea Pig</label>
-
-                    <input type="checkbox" value="rat" {...register("type[]", {})} />
-                    <label>Rat</label>
-
-                    <input type="checkbox" value="rabbit" {...register("type[]", {})} />
-                    <label>Rabbit</label>
-
-                    <input type="checkbox" value="bird" {...register("type[]", {})} />
-                    <label>Bird</label>
+                    <label>
+                        <input  type="checkbox" 
+                                value="senior" 
+                                {...register("age[]", {})} />
+                    Senior
+                    </label>
                 </fieldset>
 
+                <p>I'd prefer if they're...</p>
+
                 <fieldset>
-                    <label>Size of Animal</label>
 
-                    <input type="checkbox" value="small" {...register("size[]", {})} />
-                    <label>Small</label>
+                    <label>
+                        <input  type="checkbox" 
+                                value="small" 
+                                {...register("size[]", {required: true})} />
+                    Small
+                    </label>
 
-                    <input type="checkbox" value="medium" {...register("size[]", {})} />
-                    <label>Medium</label>
+                    <label>
+                        <input  type="checkbox" 
+                                value="medium"
+                                {...register("size[]", {})} />
+                    Medium
+                    </label>
 
-                    <input type="checkbox" value="large" {...register("size[]", {})} />
-                    <label>Large</label>
+                    <label>
+                        <input  type="checkbox" 
+                                value="large" 
+                                {...register("size[]", {})} />
+                    Large
+                    </label>
+                </fieldset>
+                    
+                <p>With this fur length...</p>
+
+                <fieldset>
+
+                    <label>
+                        <input  type="checkbox" 
+                                value="short" 
+                                {...register("fur[]", {required: true})} />
+                    Short
+                    </label>
+
+                    <label>
+                        <input  type="checkbox" 
+                                value="medium"
+                                {...register("fur[]", {})} />
+                    Medium
+                    </label>
+
+                    <label>
+                        <input  type="checkbox" 
+                                value="long" 
+                                {...register("fur[]", {})} />
+                    Long
+                    </label>
                 </fieldset>
 
-                <fieldset>
-                    <label>Fur Length</label>
-
-                    <input type="checkbox" value="short" {...register("hair[]", {})} />
-                    <label>Short</label>
-
-                    <input type="checkbox" value="medium" {...register("hair[]", {})} />
-                    <label>Medium</label>
-
-                    <input type="checkbox" value="long" {...register("hair[]", {})} />
-                    <label>Long</label>
-                </fieldset>
+                <p>Located this far away...</p>
 
                 <fieldset>
-                    <label>Distance</label>
-                    <input {...register("location", { required: true })} type="radio" value="10km" />
-                    <label>10km</label>
-                    <input {...register("location", { required: true })} type="radio" value="25km" />
-                    <label>25km</label>
-                    <input {...register("location", { required: true })} type="radio" value="50km" />
-                    <label>50km</label>
-                    <input {...register("location", { required: true })} type="radio" value="100km" />
-                    <label>100km</label>
+
+                    <label>
+                        <input {    ...register("location", 
+                                    { required: true })} 
+                                    type="radio" 
+                                    value="10km" />
+                        10km
+                    </label>
+
+                    <label>
+                        <input {    ...register("location",
+                                    { required: true })} 
+                                    type="radio" 
+                                    value="25km" />
+                        25km
+                    </label>
+
+                    <label>
+                        <input {    ...register("location", 
+                                    { required: true })} 
+                                    type="radio" 
+                                    value="50km" />
+                        50km
+                    </label>
+
+                    <label>
+                        <input {    ...register("location", 
+                                    { required: true })} 
+                                    type="radio" 
+                                    value="100km" />
+                        100km
+                    </label>
                 </fieldset>
 
             </div>
 
-            <input type="submit" />
+            <input type="submit" value="Find my match!" />
             </form>
 
         </section>

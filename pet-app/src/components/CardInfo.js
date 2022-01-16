@@ -2,13 +2,13 @@ const imageFolderPath = process.env.PUBLIC_URL + '/assets/profile-photos/';
 
 const CardInfo = () =>  {
     return (
-        <div class="card-info-component">
+        <div className="card-info-component">
             <div className="profile-pic">
                 <img src={`${imageFolderPath}Sugar.jpg`} alt="Sugar" />
             </div>
             <div className="card-text-container">
                 <div className="animal-name-age">
-                    <h2>Sugar<span class="age">7 years</span></h2>
+                    <h2>Sugar<span className="age">7 years</span></h2>
                 </div>
                 <div className="animal-type-location">
                     <p><span>Cat</span> | <span>Kamloops, BC</span></p>
