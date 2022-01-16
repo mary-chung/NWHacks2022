@@ -4,7 +4,7 @@ const PageForm = () => {
     return (
         <main>
             <section className="page">
-                <h2>Tell Us About Yourself</h2>
+                <h2 className="formheader">What are you looking for in a paw-mate?</h2>
                 <Form />
             </section>
         </main>

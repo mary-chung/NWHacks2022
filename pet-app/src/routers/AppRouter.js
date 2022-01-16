@@ -11,7 +11,7 @@ import PageProfile from '../pages/PageProfile';
 function App() {
   return (
       <div className="wrapper">
-        <Header title='MatchaPaw' />
+        <Header title='MatchaPet' />
         <Routes>
           <Route path="/" element={<PageHome />} />
           <Route path="form" element={<PageForm />} />

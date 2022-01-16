@@ -1,7 +1,7 @@
 :root {
     --white: #FFFFFF;
     --beige: #F0EAD2;
-    --lightgreen: #ADC178;
+    /* --lightgreen: #ADC178; */
     --darkgreen: #607033;
     --lightbrown: #A98467;
     --brown: #6C584C;
@@ -43,7 +43,7 @@ main {
 
 .logo {
     display: block;
-    margin: auto;
+    margin: 1rem auto 2rem;
     width: 300px;
 }
 
@@ -51,7 +51,7 @@ main {
     text-align: center;
     font-size: 1.5em;
     line-height: 1.6;
-    margin: 2rem auto 0;
+    margin: auto;
 }
 
 .instructions ol {
@@ -66,7 +66,7 @@ main {
 
 .home {
     width: 177px;
-    margin: 2rem auto;
+    margin: 1rem auto;
     display: block;
     border: 3px solid var(--darkgreen);
     border-radius: 1.5rem;
@@ -81,7 +81,7 @@ main {
     color: var(--white);
 }
 
-.home a {
+a.home {
     font-size: 1.45em;
     text-decoration: none;
     color: var(--white);
@@ -96,10 +96,79 @@ main {
     padding: 2rem;
 }
 
-/* .form-field:not(.radio) {
+.formheader{
+    text-align: center;
+}
+
+form p {
+    padding: 0 1rem;
+}
+
+fieldset {
+    display: flex;
+    border: none;
+}
+
+fieldset:first-child{
     display: flex;
     flex-direction: column;
-} */
+}
+
+input {
+    margin: 0 0.5rem 0 1rem;
+}
+
+input[type=text]{
+    margin: 1rem 0 0;
+    padding: 0.5rem 1rem;
+    border-radius: 0.625rem;
+    border: 2px solid var(--brown);
+}
+
+input[type=text]:focus{
+    border: 2px solid var(--darkgreen);
+    outline: none;
+}
+
+input[type=checkbox]{
+    border: 3px solid var(--brown);
+}
+
+input[type=submit]{
+    width: 230px;
+    margin: 1rem auto;
+    display: block;
+    border: 3px solid var(--darkgreen);
+    border-radius: 1.5rem;
+    background-color: var(--darkgreen);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    font-size: 1.45em;
+}
+
+input[type=submit]:hover {
+    border: 3px solid var(--brown);
+    background-color: var(--brown);
+    color: var(--white);
+}
+
+/* Page Swipe */
+.page-swipe {
+    display: flex;
+    align-items: center;
+}
+
+.cancel {
+    color: var(--brown);
+    font-size: 96px;
+    padding: 1rem;
+}
+
+.yes {
+    color: var(--darkgreen);
+    font-size: 96px;
+    padding: 1rem;
+}
 
 /* Card */
 
@@ -144,9 +213,9 @@ main {
 
 .attributes {
     display: inline-block;
-    border: 3px solid var(--darkgreen);
+    border: 3px solid var(--lightbrown);
     border-radius: 1.5rem;
-    background-color: var(--darkgreen);
+    background-color: var(--lightbrown);
     color: var(--white);
     margin: 0.25rem;
     padding: 0.5rem 1rem;
