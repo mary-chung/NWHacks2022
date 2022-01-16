@@ -35,6 +35,7 @@ const CREATE_PET_TABLE = `CREATE TABLE IF NOT EXISTS Pets(
     location VARCHAR(255),
     description VARCHAR(255),
     websiteLink VARCHAR(255),
+    email VARCHAR(100),
     profilePic VARCHAR(255),
     PRIMARY KEY (name, type, sex, breed)
     )`;
@@ -43,13 +44,13 @@ const populateTable = () => {
     const insert = `INSERT INTO pets.pets SET name = ?, type = ?, sex = ?,
   breed = ?, size = ?, furlength = ?, ageRange = ?, age = ?, kidsOK = ?, indoorsOnly = ?, apartmentOK = ?,
   houseTrained = ?, catsOK = ?, dogsOK = ?, bonded = ?, specialNeeds = ?, location = ?,
-  description = ?, websiteLink = ?`;
+  description = ?, websiteLink = ?, email = ?`;
 
     var {parse} = require('csv-parse');
 
     fs.readFile("./data/pet_tuples.csv", (err, fileData) => {
         parse(fileData, {columns: false, trim: true}, (err, rows) => {
-            for (var i=0; i<rows.length; i++) {
+            for (var i=1; i<rows.length; i++) {
                 const insertArgs = rows[i]
                 connection.query(insert, insertArgs, (error, result, fields) => {
                     if (error) {
