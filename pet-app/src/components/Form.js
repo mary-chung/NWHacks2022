@@ -30,7 +30,7 @@ const Form = () => {
                     <label>
                         <input  type="checkbox" 
                                 value="dog" 
-                                {...register("type[]", {})} />
+                                {...register("type[]", {required: true})} />
                     Dog
                     </label>
 
@@ -76,7 +76,7 @@ const Form = () => {
                     <label>
                         <input  type="checkbox" 
                                 value="male" 
-                                {...register("gender[]", {})} />
+                                {...register("gender[]", {required: true})} />
                     Male
                     </label>
 
@@ -88,13 +88,13 @@ const Form = () => {
                     </label>
                 </fieldset>
 
-                <p>And is this old...</p>
+                <p>And is this age...</p>
 
                 <fieldset>
                     <label>
                         <input  type="checkbox" 
                                 value="young" 
-                                {...register("age[]", {})} />
+                                {...register("age[]", {required: true})} />
                     Young
                     </label>
 
@@ -127,7 +127,7 @@ const Form = () => {
                     <label>
                         <input  type="checkbox" 
                                 value="small" 
-                                {...register("size[]", {})} />
+                                {...register("size[]", {required: true})} />
                     Small
                     </label>
 
@@ -153,21 +153,21 @@ const Form = () => {
                     <label>
                         <input  type="checkbox" 
                                 value="short" 
-                                {...register("hair[]", {})} />
+                                {...register("fur[]", {required: true})} />
                     Short
                     </label>
 
                     <label>
                         <input  type="checkbox" 
                                 value="medium"
-                                {...register("hair[]", {})} />
+                                {...register("fur[]", {})} />
                     Medium
                     </label>
 
                     <label>
                         <input  type="checkbox" 
                                 value="long" 
-                                {...register("hair[]", {})} />
+                                {...register("fur[]", {})} />
                     Long
                     </label>
                 </fieldset>

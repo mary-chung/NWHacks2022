@@ -6,8 +6,7 @@ const Form = () => {
     const navigate = useNavigate();
     const onSubmit = (data) => {
         console.log(data);
-        // where to navigate to after finishing form?
-        navigate("/swipe");
+        navigate("/profile");
                     }
     // need a saveData() function in another file?
     console.log(errors);
@@ -34,7 +33,7 @@ const Form = () => {
                 <fieldset>
                     <label>Message</label>
                     <textarea 
-                            {...register("message", {required: true, maxLength: 80})} />
+                            {...register("message", {required: true, maxLength: 500})} />
                 </fieldset>
 
             </div>

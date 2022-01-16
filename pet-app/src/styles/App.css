@@ -1,7 +1,7 @@
 :root {
     --white: #FFFFFF;
     --beige: #F0EAD2;
-    /* --lightgreen: #ADC178; */
+    --lightgreen: #ADC178;
     --darkgreen: #607033;
     --lightbrown: #A98467;
     --brown: #6C584C;
@@ -165,10 +165,22 @@ input[type=submit]:hover {
     padding: 1rem;
 }
 
+.cancel:hover {
+    color: var(--lightbrown);
+}
+
 .yes, .email {
     color: var(--darkgreen);
     font-size: 96px;
     padding: 1rem;
+}
+
+.yes:hover {
+    color: var(--lightgreen);
+} 
+
+.email:hover {
+    color: var(--lightgreen);
 }
 
 /* Card */
@@ -291,4 +303,21 @@ textarea:focus {
 
 .match-info-component {
     margin-bottom: 2rem;
+}
+
+/* Change Form Answers Component */
+.change {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}
+
+.change .material-icons {
+    font-size: 48px;
+    color: var(--brown);
+}
+
+.change .material-icons:hover {
+    font-size: 48px;
+    color: var(--lightbrown);
 }
