@@ -145,10 +145,6 @@ const queryPets = (ageRange, sex, type, size, furLength, distance) => {
             }
         })
     })
-    
-    
-    console.log(results)
-    return results
 }
 
 module.exports = {
