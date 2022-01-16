@@ -291,7 +291,7 @@ ul.profile-list {
 textarea {
     height: 200px;
     margin: 1rem 0 0;
-    padding: 0.5rem 1rem;
+    padding: 1rem;
     border-radius: 0.625rem;
     border: 2px solid var(--brown);
 }

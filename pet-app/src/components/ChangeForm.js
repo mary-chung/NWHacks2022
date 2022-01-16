@@ -8,7 +8,6 @@ const ChangeForm = () => {
                 account_circle
                 </span>
             </Link>
-
         </div>
     )
 }
