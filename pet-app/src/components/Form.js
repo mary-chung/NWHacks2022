@@ -6,6 +6,66 @@ const Form = () => {
     const navigate = useNavigate();
     const onSubmit = (data) => {
         console.log(data);
+        let age = data.age;
+        let fur = data.fur;
+        let sex = data.gender;
+        let location = data.location;
+        let name = data.name;
+        let size = data.size;
+        let type = data.type;
+
+        var url = 'http://localhost:5000/adoptablepets?'
+        url = url.concat('ageRange=')
+        for (let i=0; i<age.length; i++) {
+            if (i<age.length-1) {
+                url = url.concat(age[i] + ',')
+            } else {
+                url = url.concat(age[i])
+            }
+            
+        }
+        url = url.concat('&sex=')
+        for (let i=0; i<sex.length; i++) {
+            if (i<sex.length-1) {
+                url = url.concat(sex[i] + ',')
+            } else {
+                url = url.concat(sex[i])
+            }
+        }
+        url = url.concat('&type=')
+        for (let i=0; i<type.length; i++) {
+            if (i<type.length-1) {
+                url = url.concat(type[i] + ',')
+            } else {
+                url = url.concat(type[i])
+            }
+        }
+        url = url.concat('&size=')
+        for (let i=0; i<size.length; i++) {
+            if (i<size.length-1) {
+                url = url.concat(size[i] + ',')
+            } else {
+                url = url.concat(size[i])
+            }
+        }
+        url = url.concat('&furLength=')
+        for (let i=0; i<fur.length; i++) {
+            if (i<fur.length-1) {
+                url = url.concat(fur[i] + ',')
+            } else {
+                url = url.concat(fur[i])
+            }
+            
+        }
+        url = url.concat('&distance=' + location)
+
+        //fetch(url).then(res => console.log(res.json()))
+        fetch(url).then(res => {
+            let results = Promise.resolve(res.json())
+            console.log(results)
+        })
+        
+
         navigate("/swipe");
                     }
     // need a saveData() function in another file?
@@ -43,7 +103,7 @@ const Form = () => {
 
                     <label>
                         <input  type="checkbox" 
-                                value="guineapig" 
+                                value="guinea pig" 
                                 {...register("type[]", {})} />
                     Guinea Pig
                     </label>
@@ -75,14 +135,14 @@ const Form = () => {
                 <fieldset>
                     <label>
                         <input  type="checkbox" 
-                                value="male" 
+                                value="M" 
                                 {...register("gender[]", {required: true})} />
                     Male
                     </label>
 
                     <label>
                         <input  type="checkbox" 
-                                value="female" 
+                                value="F" 
                                 {...register("gender[]", {})} />
                     Female
                     </label>
@@ -100,7 +160,7 @@ const Form = () => {
 
                     <label>
                         <input  type="checkbox" 
-                                value="youngadult" 
+                                value="young adult" 
                                 {...register("age[]", {})} />
                     Young Adult
                     </label>
@@ -126,21 +186,21 @@ const Form = () => {
 
                     <label>
                         <input  type="checkbox" 
-                                value="small" 
+                                value="S" 
                                 {...register("size[]", {required: true})} />
                     Small
                     </label>
 
                     <label>
                         <input  type="checkbox" 
-                                value="medium"
+                                value="M"
                                 {...register("size[]", {})} />
                     Medium
                     </label>
 
                     <label>
                         <input  type="checkbox" 
-                                value="large" 
+                                value="L" 
                                 {...register("size[]", {})} />
                     Large
                     </label>
