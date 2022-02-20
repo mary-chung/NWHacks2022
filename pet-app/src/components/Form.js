@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 import matchData from "../data/matchData";
 
 const Form = () => {
-    const asyncFetch = async (data) => {
-        let age = data.age;
-        let fur = data.fur;
-        let sex = data.gender;
-        let location = data.location;
-        let name = data.name;
-        let size = data.size;
-        let type = data.type;
+    const asyncFetch = async (inputdata) => {
+        let age = inputdata.age;
+        let fur = inputdata.fur;
+        let sex = inputdata.gender;
+        let location = inputdata.location;
+        let name = inputdata.name;
+        let size = inputdata.size;
+        let type = inputdata.type;
 
         var url = 'http://localhost:5000/adoptablepets?'
         url = url.concat('ageRange=')
@@ -58,39 +58,41 @@ const Form = () => {
         url = url.concat('&distance=' + location)
 
         //fetch(url).then(res => console.log(res.json()))
-        let matchData = await fetch(url, { method : 'GET' })
+        let data = await fetch(url, { method : 'GET' })
         .then(res => {
             return res.json();
         })
 
-        await new Promise(r => setTimeout(r, 2000));
+        
+
+        for (let i=0; i<data.length; i++) {
+            let match = {
+                name: data[i].name,
+                type: data[i].type,
+                sex: data[i].breed,
+                size: data[i].size,
+                furlength: data[i].furLength,
+                ageRange: data[i].ageRange,
+                age: data[i].age,
+                kidsOK: data[i].kidsOK,
+                indoorsOnly: data[i].indoorsOnly,
+                apartmentOK: data[i].apartmentOK,
+                houseTrained: data[i].houseTrained,
+                catsOK: data[i].catsOK,
+                dogsOK: data[i].dogsOK,
+                bonded: data[i].bonded,
+                specialNeeds: data[i].specialNeeds,
+                location: data[i].location,
+                description: data[i].description,
+                websiteLink: data[i].websiteLink,
+            }
+
+            matchData.push(match)
+        }
+
+        await new Promise(r => setTimeout(r, 4000));
         console.log(matchData)
-
-
-        // for (let i=0; i<matchData.length; i++) {
-        //     let match = {
-        //         name: matchData[i].name,
-        //         type: matchData[i].type,
-        //         sex: matchData[i].breed,
-        //         size: matchData[i].size,
-        //         furlength: matchData[i].furLength,
-        //         ageRange: matchData[i].ageRange,
-        //         age: matchData[i].age,
-        //         kidsOK: matchData[i].kidsOK,
-        //         indoorsOnly: matchData[i].indoorsOnly,
-        //         apartmentOK: matchData[i].apartmentOK,
-        //         houseTrained: matchData[i].houseTrained,
-        //         catsOK: matchData[i].catsOK,
-        //         dogsOK: matchData[i].dogsOK,
-        //         bonded: matchData[i].bonded,
-        //         specialNeeds: matchData[i].specialNeeds,
-        //         location: matchData[i].location,
-        //         description: matchData[i].description,
-        //         websiteLink: matchData[i].websiteLink,
-        //     }
-
-        //     matchData.push(match)
-        // }
+        
 
 
     }
@@ -98,7 +100,6 @@ const Form = () => {
     const navigate = useNavigate();
     const onSubmit = (data) => {
         asyncFetch(data);
-        
 
         navigate("/swipe");
                     }
